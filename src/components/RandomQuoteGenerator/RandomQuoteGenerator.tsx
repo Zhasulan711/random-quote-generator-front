@@ -5,22 +5,29 @@ import { fetchQuote } from "../../api/quotes/route";
 import { LoadingIndicator } from "./LoadingIndicator";
 
 export const RandomQuoteGenerator = () => {
-  const [quote, setQuote] = useState<string>("");
-  const [author, setAuthor] = useState<string>("");
+  const [quoteData, setQuoteData] = useState({
+    quote: "",
+    author: "",
+    image: "",
+  });
   const [randomNumber, setRandomNumber] = useState<number>(1);
-  const [image, setImage] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const getQuote = async () => {
       setIsLoading(true);
+      setError("");
       try {
         const data = await fetchQuote(randomNumber);
-        setQuote(data.content);
-        setAuthor(data.author);
-        setImage(`http://localhost:8000/images/${data.avatarPath}`);
+        setQuoteData({
+          quote: data.content,
+          author: data.author,
+          image: `http://localhost:8000/images/${data.avatarPath}`,
+        });
       } catch (error: any) {
         console.error("Fetch error:", error);
+        setError("Failed to fetch quote. Please try again.");
       } finally {
         setTimeout(() => setIsLoading(false), 1000);
       }
@@ -36,6 +43,11 @@ export const RandomQuoteGenerator = () => {
     return <LoadingIndicator />;
   }
 
+  if (error) {
+    return <div className="error-message">{error}</div>;
+  }
+  const { quote, author, image } = quoteData;
+  
   return (
     <div className="quote-generator-wrapper">
       <p className="quote-text">{quote}</p>
