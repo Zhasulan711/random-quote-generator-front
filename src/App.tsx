@@ -1,13 +1,7 @@
-import React from "react";
-
-import "./styles/App.scss";
+import { RandomQuoteGenerator } from "./components/RandomQuoteGenerator/RandomQuoteGenerator";
 
 function App() {
-  return (
-    <div className="App">
-      <h1>lol</h1>
-    </div>
-  );
+  return <RandomQuoteGenerator />;
 }
 
 export default App;
