@@ -20,12 +20,13 @@
 
   .quote-nav-bars {
     margin-top: 10px;
-    padding-top: 20px;
+    padding-top: 10px;
     width: 100%;
     border-top: solid 1px #014cff;
 
     display: flex;
     flex-direction: row;
+    align-items: center;
 
     .quote-author {
       width: 243px;
@@ -33,11 +34,18 @@
 
       display: flex;
       flex-direction: row;
-      // justify-content: center;
       align-items: center;
       font-family: "Rock Salt", sans-serif;
+      padding: 10px;
+
+      img {
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+      }
 
       h1 {
+        margin-left: 10px;
         font-size: 18px;
       }
     }
@@ -49,6 +57,7 @@
       border: solid 2px #014cff;
       border-radius: 10px;
       margin-left: auto;
+      cursor: pointer;
 
       display: flex;
       justify-content: center;
@@ -56,6 +65,11 @@
       font-size: 20px;
       color: #014cff;
       font-weight: 500;
+
+      &:hover {
+        background-color: #014cff;
+        color: #ffffff;
+      }
     }
   }
 }

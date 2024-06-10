@@ -1,18 +1,43 @@
+import { useState, useEffect } from "react";
+
 import "../../styles/root/RandomQuoteGenerator.scss";
+import { fetchQuote } from "../../api/quotes/route";
 
 export const RandomQuoteGenerator = () => {
+  const [quote, setQuote] = useState<string>("");
+  const [author, setAuthor] = useState<string>("");
+  const [randomNumber, setRandomNumber] = useState<number>(1);
+  const [image, setImage] = useState<string>("");
+
+  useEffect(() => {
+    const getQuote = async () => {
+      try {
+        const data = await fetchQuote(randomNumber);
+        setQuote(data.content);
+        setAuthor(data.author);
+        setImage(`http://localhost:8000/images/${data.avatarPath}`);
+      } catch (error: any) {
+        console.error("Fetch error:", error);
+      }
+    };
+    getQuote();
+  }, [randomNumber]);
+
+  const handleClick = () => {
+    setRandomNumber(Math.floor(Math.random() * 10 + 1));
+  };
+
   return (
     <div className="quote-generator-wrapper">
-      <p className="quote-text">
-        Calling out leads to shame, calling up leads to belief. <br /> Leaders
-        stir up belief.
-      </p>
+      <p className="quote-text">{quote}</p>
       <div className="quote-nav-bars">
         <div className="quote-author">
-          {/* <img /> */}
-          <h1>Kevin Jackson</h1>
+          <img src={image} alt={author} />
+          <h1>{author}</h1>
         </div>
-        <button className="quote-button">Get another button</button>
+        <button className="quote-button" onClick={handleClick}>
+          Get another button
+        </button>
       </div>
     </div>
   );
