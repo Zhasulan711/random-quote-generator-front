@@ -29,7 +29,7 @@
     align-items: center;
 
     .quote-author {
-      width: 243px;
+      width: 320px;
       height: 70px;
 
       display: flex;
@@ -47,6 +47,7 @@
       h1 {
         margin-left: 10px;
         font-size: 18px;
+        white-space: nowrap;
       }
     }
 
@@ -69,6 +70,153 @@
       &:hover {
         background-color: #014cff;
         color: #ffffff;
+      }
+    }
+  }
+}
+
+.loading-indicator {
+  .loader {
+    width: 120px;
+    height: 20px;
+    background: linear-gradient(#014cff 0 0) 0/0% no-repeat #ddd;
+    animation: l1 1s infinite linear;
+  }
+  @keyframes l1 {
+    100% {
+      background-size: 100%;
+    }
+  }
+}
+
+@media (max-width: 5500px) {
+  .quote-generator-wrapper {
+    width: 1536px;
+  }
+}
+
+@media (max-width: 2600px) {
+  .quote-generator-wrapper {
+    width: 1024px;
+  }
+}
+
+@media (max-width: 2300px) {
+  .quote-generator-wrapper {
+    width: 903px;
+  }
+}
+
+@media (max-width: 1950px) {
+  .quote-generator-wrapper {
+    width: 768px;
+  }
+}
+
+@media (max-width: 1680px) {
+  .quote-generator-wrapper {
+    width: 668px;
+  }
+}
+
+@media (max-width: 1550px) {
+  .quote-generator-wrapper {
+    width: 615px;
+  }
+}
+
+@media (max-width: 1300px) {
+  .quote-generator-wrapper {
+    width: 508px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .quote-generator-wrapper {
+    width: 436px;
+
+    .quote-nav-bars {
+      .quote-author {
+        width: 235px;
+
+        h1 {
+          font-size: 11px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 950px) {
+  .quote-generator-wrapper {
+    width: 381px;
+
+    .quote-nav-bars {
+      .quote-author {
+        width: 200px;
+        
+        h1 {
+          font-size: 11px;
+        }
+      }
+
+      .quote-button {
+        width: 170px;
+      }
+    }
+  }
+}
+
+@media (max-width: 770px) {
+  .quote-generator-wrapper {
+    width: 305px;
+
+    .quote-nav-bars {
+      .quote-author {
+        width: 180px;
+      }
+
+      .quote-button {
+        width: 120px;
+      }
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .quote-generator-wrapper {
+    width: 254px;
+
+    .quote-nav-bars {
+      .quote-author {
+        width: 150px;
+      }
+
+      .quote-button {
+        width: 90px;
+      }
+    }
+  }
+}
+
+// mobile adaptive design
+@media (max-width: 440px) {
+  .quote-generator-wrapper {
+    width: 320px;
+
+    .quote-nav-bars {
+      .quote-author {
+        width: 100px;
+        padding: 0px;
+
+        h1 {
+          font-size: 11px;
+        }
+      }
+
+      .quote-button {
+        width: 110px;
+        font-size: 12px;
       }
     }
   }
