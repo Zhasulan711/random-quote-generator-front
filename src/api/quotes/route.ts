@@ -1,7 +1,7 @@
 export const fetchQuote = async (randomNumber: number) => {
   try {
     const response = await fetch(
-      `http://localhost:8000/api/quotes/${randomNumber}`
+      `https://random-quote-generator-api-4-beginner.onrender.com/api/quotes/${randomNumber}`
     );
 
     if (!response.ok) {

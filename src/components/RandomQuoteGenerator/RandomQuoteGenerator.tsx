@@ -23,7 +23,7 @@ export const RandomQuoteGenerator = () => {
         setQuoteData({
           quote: data.content,
           author: data.author,
-          image: `http://localhost:8000/images/${data.avatarPath}`,
+          image: `https://random-quote-generator-api-4-beginner.onrender.com/images/${data.avatarPath}`,
         });
       } catch (error: any) {
         console.error("Fetch error:", error);
